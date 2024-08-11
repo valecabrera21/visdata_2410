@@ -1,0 +1,1470 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataFrame &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Entregable1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DataFrame" href="Entregable%202.html" />
+    <link rel="prev" title="Enunciado de cada entregable." href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Enunciado de cada entregable.
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>DataFrame</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Entregable%202.html"><strong>DataFrame</strong></a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEntregable1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Entregable1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DataFrame</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DataFrame</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-previos">Pasos previos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-1">Inciso 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#genere-un-grafico-que-indique-el-numero-de-medallas-concedidas-en-cada-uno-de-los-cinco-principales-deportes-en-2016">Genere un gráfico que indique el número de medallas concedidas en cada uno de los cinco principales deportes en 2016.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-2">Inciso 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-un-grafico-que-represente-la-distribucion-de-la-edad-de-los-ganadores-de-medallas-en-los-cinco-principales-deportes-en-2016">Trace un gráfico que represente la distribución de la edad de los ganadores de medallas en los cinco principales deportes en 2016</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-3">Inciso 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descubre-que-equipos-nacionales-ganaron-el-mayor-numero-de-medallas-en-los-cinco-principales-deportes-en-2016">Descubre qué equipos nacionales ganaron el mayor número de medallas en los cinco principales deportes en 2016.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-4">Inciso 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#observe-la-tendencia-del-peso-medio-de-los-atletas-masculinos-y-femeninos-ganadores-en-los-cinco-principales-deportes-en-2016">Observe la tendencia del peso medio de los atletas masculinos y femeninos ganadores en los cinco principales deportes en 2016</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">median</span><span class="p">,</span> <span class="n">mean</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dataframe">
+<h1><strong>DataFrame</strong><a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deportes_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/lihkirun/AppliedStatisticMS/main/DataVisualizationRPython/Lectures/Python/PythonDataSets/athlete_events.csv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deportes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">deportes_url</span><span class="p">)</span>
+<span class="n">deportes_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>180.0</td>
+      <td>80.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1992 Summer</td>
+      <td>1992</td>
+      <td>Summer</td>
+      <td>Barcelona</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>170.0</td>
+      <td>60.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>2012 Summer</td>
+      <td>2012</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark</td>
+      <td>DEN</td>
+      <td>1920 Summer</td>
+      <td>1920</td>
+      <td>Summer</td>
+      <td>Antwerpen</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark/Sweden</td>
+      <td>DEN</td>
+      <td>1900 Summer</td>
+      <td>1900</td>
+      <td>Summer</td>
+      <td>Paris</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deportes_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>271116</td>
+      <td>39783</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>134732</td>
+      <td>2</td>
+      <td>1184</td>
+      <td>230</td>
+      <td>51</td>
+      <td>2</td>
+      <td>42</td>
+      <td>66</td>
+      <td>765</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>Robert Tait McKenzie</td>
+      <td>M</td>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000 Summer</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Athletics</td>
+      <td>Football Men's Football</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>58</td>
+      <td>196594</td>
+      <td>17847</td>
+      <td>18853</td>
+      <td>13821</td>
+      <td>222552</td>
+      <td>22426</td>
+      <td>38624</td>
+      <td>5733</td>
+      <td>13372</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="pasos-previos">
+<h1>Pasos previos<a class="headerlink" href="#pasos-previos" title="Link to this heading">#</a></h1>
+<p>Para la realización de los 3 incisos, filtramos el DataFrame <strong>deportes_df</strong> con el fin de trabajar únicamente con los registros relacionados con los jugadores que participaron durante el año 2016 y se ganaron una medalla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medallas_2016</span> <span class="o">=</span> <span class="n">deportes_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">deportes_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">==</span> <span class="mi">2016</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">deportes_df</span><span class="p">[</span><span class="s1">&#39;Medal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">())]</span>
+<span class="n">medallas_2016</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>158</th>
+      <td>62</td>
+      <td>Giovanni Abagnale</td>
+      <td>M</td>
+      <td>21.0</td>
+      <td>198.0</td>
+      <td>90.0</td>
+      <td>Italy</td>
+      <td>ITA</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Rowing</td>
+      <td>Rowing Men's Coxless Pairs</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>65</td>
+      <td>Patimat Abakarova</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>165.0</td>
+      <td>49.0</td>
+      <td>Azerbaijan</td>
+      <td>AZE</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Taekwondo</td>
+      <td>Taekwondo Women's Flyweight</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>73</td>
+      <td>Luc Abalo</td>
+      <td>M</td>
+      <td>31.0</td>
+      <td>182.0</td>
+      <td>86.0</td>
+      <td>France</td>
+      <td>FRA</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Handball</td>
+      <td>Handball Men's Handball</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>250</td>
+      <td>Saeid Morad Abdevali</td>
+      <td>M</td>
+      <td>26.0</td>
+      <td>170.0</td>
+      <td>80.0</td>
+      <td>Iran</td>
+      <td>IRI</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Wrestling</td>
+      <td>Wrestling Men's Middleweight, Greco-Roman</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>794</th>
+      <td>455</td>
+      <td>Denis Mikhaylovich Ablyazin</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>161.0</td>
+      <td>62.0</td>
+      <td>Russia</td>
+      <td>RUS</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Gymnastics</td>
+      <td>Gymnastics Men's Team All-Around</td>
+      <td>Silver</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Seguido de esto, haciendo uso de la nueva base de datos creada que lleva por nombre <strong>medallas_2016</strong>, contamos cuántas medallas ganó en total cada deporte y lo ordenamos de mayor a menor (por cantidad de medallas).
+Para cada uno de los procesos mencionados anteriormente, hacemos uso de las funciones <code class="docutils literal notranslate"><span class="pre">count()</span></code> y <code class="docutils literal notranslate"><span class="pre">sort.values()</span></code>, respectivamente.
+Como resultado, obtuvimos que el deporte con mayor cantidad de medallas es Atletismo, el cual obtuvo un total de 192 medallas durante el año de interés (2016).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medallas_deportes</span> <span class="o">=</span> <span class="n">medallas_2016</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sport&#39;</span><span class="p">)[</span><span class="s1">&#39;Medal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">medallas_deportes</span><span class="p">)</span> <span class="c1">#cantidad total de medallas por deporte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Sport  Medal
+0                 Archery     24
+1               Athletics    192
+2               Badminton     24
+3              Basketball     72
+4        Beach Volleyball     12
+5                  Boxing     51
+6                Canoeing     82
+7                 Cycling     84
+8                  Diving     36
+9           Equestrianism     45
+10                Fencing     65
+11               Football    106
+12                   Golf      6
+13             Gymnastics     66
+14               Handball     89
+15                 Hockey     99
+16                   Judo     56
+17      Modern Pentathlon      6
+18    Rhythmic Gymnastics     18
+19                 Rowing    144
+20           Rugby Sevens     74
+21                Sailing     45
+22               Shooting     45
+23               Swimming    191
+24  Synchronized Swimming     32
+25           Table Tennis     24
+26              Taekwondo     32
+27                 Tennis     24
+28           Trampolining      6
+29              Triathlon      6
+30             Volleyball     72
+31             Water Polo     78
+32          Weightlifting     45
+33              Wrestling     72
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medallas_deportes</span> <span class="o">=</span> <span class="n">medallas_deportes</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Medal&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">medallas_deportes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sport</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Athletics</td>
+      <td>192</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Swimming</td>
+      <td>191</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Rowing</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Football</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Hockey</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>En este caso, los deportes más importantes son aquellos con mayor cantidad de medallas. Por ende, dado que el DataFrame <strong>medallas_deportes</strong> nos brinda la información ordenada descendentemente, usamos <code class="docutils literal notranslate"><span class="pre">head(5)</span></code>para quedarnos solamente con sus primeros cinco valores. Es decir, los deportes con más medallas son : Atletismo, Natación, Remo, Fútbol y Hockey.
+Además, filtramos <strong>medallas_2016</strong>, de tal manera que solo se nos muestren los registros de los deportes mencionados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medallas_5</span> <span class="o">=</span> <span class="n">medallas_deportes</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">medallas_5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Sport  Medal
+1   Athletics    192
+23   Swimming    191
+19     Rowing    144
+11   Football    106
+15     Hockey     99
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deportes_5</span><span class="o">=</span><span class="n">medallas_5</span><span class="p">[</span><span class="s1">&#39;Sport&#39;</span><span class="p">]</span>
+<span class="n">deportes_dff</span> <span class="o">=</span> <span class="n">medallas_2016</span><span class="p">[</span><span class="n">medallas_2016</span><span class="p">[</span><span class="s1">&#39;Sport&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">deportes_5</span><span class="p">)]</span>
+<span class="n">deportes_dff</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Solo contiene registros de los 5 deportes principales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>158</th>
+      <td>62</td>
+      <td>Giovanni Abagnale</td>
+      <td>M</td>
+      <td>21.0</td>
+      <td>198.0</td>
+      <td>90.0</td>
+      <td>Italy</td>
+      <td>ITA</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Rowing</td>
+      <td>Rowing Men's Coxless Pairs</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>814</th>
+      <td>465</td>
+      <td>Matthew "Matt" Abood</td>
+      <td>M</td>
+      <td>30.0</td>
+      <td>197.0</td>
+      <td>92.0</td>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Swimming</td>
+      <td>Swimming Men's 4 x 100 metres Freestyle Relay</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>1228</th>
+      <td>690</td>
+      <td>Chantal Achterberg</td>
+      <td>F</td>
+      <td>31.0</td>
+      <td>172.0</td>
+      <td>72.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Rowing</td>
+      <td>Rowing Women's Quadruple Sculls</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>1529</th>
+      <td>846</td>
+      <td>Valerie Kasanita Adams-Vili (-Price)</td>
+      <td>F</td>
+      <td>31.0</td>
+      <td>193.0</td>
+      <td>120.0</td>
+      <td>New Zealand</td>
+      <td>NZL</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Athletics</td>
+      <td>Athletics Women's Shot Put</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>1847</th>
+      <td>1017</td>
+      <td>Nathan Ghar-Jun Adrian</td>
+      <td>M</td>
+      <td>27.0</td>
+      <td>198.0</td>
+      <td>100.0</td>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Swimming</td>
+      <td>Swimming Men's 50 metres Freestyle</td>
+      <td>Bronze</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="inciso-1">
+<h1>Inciso 1<a class="headerlink" href="#inciso-1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="genere-un-grafico-que-indique-el-numero-de-medallas-concedidas-en-cada-uno-de-los-cinco-principales-deportes-en-2016">
+<h1>Genere un gráfico que indique el número de medallas concedidas en cada uno de los cinco principales deportes en 2016.<a class="headerlink" href="#genere-un-grafico-que-indique-el-numero-de-medallas-concedidas-en-cada-uno-de-los-cinco-principales-deportes-en-2016" title="Link to this heading">#</a></h1>
+<p>Diagrama de barras para mostrar la cantidad de medallas que tiene cada unos de los cinco deportes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">medallas_5</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Sport&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Medal&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;tab20c&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Deporte&quot;</span><span class="p">,</span> <span class="s2">&quot;Número de Medallas&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Número de Medallas por Deporte&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8311dbb63116c61693e4fc1478d9dd48eaf8ff9cdfcca8499d32492c9aadc52d.png" src="_images/8311dbb63116c61693e4fc1478d9dd48eaf8ff9cdfcca8499d32492c9aadc52d.png" />
+</div>
+</div>
+<section id="inciso-2">
+<h2>Inciso 2<a class="headerlink" href="#inciso-2" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="trace-un-grafico-que-represente-la-distribucion-de-la-edad-de-los-ganadores-de-medallas-en-los-cinco-principales-deportes-en-2016">
+<h1>Trace un gráfico que represente la distribución de la edad de los ganadores de medallas en los cinco principales deportes en 2016<a class="headerlink" href="#trace-un-grafico-que-represente-la-distribucion-de-la-edad-de-los-ganadores-de-medallas-en-los-cinco-principales-deportes-en-2016" title="Link to this heading">#</a></h1>
+<p>Tomando la información contenida en <code class="docutils literal notranslate"><span class="pre">deportes_dff</span></code>, se crea un histograma para mostrar la frecuencia de los valores dentro de la variable <strong>Age</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">deportes_dff</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#377eb8&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Distribución de la edad de ganadores de medallas&#39;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 1.0, &#39;Distribución de la edad de ganadores de medallas&#39;),
+ Text(0.5, 0, &#39;Edad&#39;),
+ Text(0, 0.5, &#39;Frecuencia&#39;)]
+</pre></div>
+</div>
+<img alt="_images/2519d20a62fa8cd2f14b06a2e78c667639415cc0144f67b4b0ec7b5f9172bda8.png" src="_images/2519d20a62fa8cd2f14b06a2e78c667639415cc0144f67b4b0ec7b5f9172bda8.png" />
+</div>
+</div>
+<section id="inciso-3">
+<h2>Inciso 3<a class="headerlink" href="#inciso-3" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="descubre-que-equipos-nacionales-ganaron-el-mayor-numero-de-medallas-en-los-cinco-principales-deportes-en-2016">
+<h1>Descubre qué equipos nacionales ganaron el mayor número de medallas en los cinco principales deportes en 2016.<a class="headerlink" href="#descubre-que-equipos-nacionales-ganaron-el-mayor-numero-de-medallas-en-los-cinco-principales-deportes-en-2016" title="Link to this heading">#</a></h1>
+<p>Para descubrir esta información, hacemos uso del DataFrame <strong>deportes_dff</strong> y con ayuda de la función <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> agrupamos la información por equipos. Una vez hecho esto, contamos la cantidad de medallas de cada uno con la función <code class="docutils literal notranslate"><span class="pre">count()</span></code>y ordenamos de mayor a menor con <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equipos</span> <span class="o">=</span> <span class="n">deportes_dff</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Team&#39;</span><span class="p">)[</span><span class="s1">&#39;Medal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Medal&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">equipos</span><span class="p">)</span> <span class="c1">#Cantidad total de medallas por equipo nacional</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Team  Medal
+52        United States    127
+20              Germany     88
+21        Great Britain     69
+10               Canada     45
+2             Australia     43
+33          Netherlands     34
+27              Jamaica     30
+46               Sweden     21
+19               France     20
+7                Brazil     19
+1             Argentina     18
+6               Belgium     18
+35              Nigeria     18
+11                China     15
+28                Japan     15
+30                Kenya     13
+16              Denmark     12
+26                Italy     10
+37               Poland      9
+34          New Zealand      9
+39              Romania      9
+44         South Africa      9
+24              Hungary      8
+18             Ethiopia      8
+13              Croatia      6
+3               Bahamas      6
+40               Russia      4
+31            Lithuania      4
+36               Norway      4
+45                Spain      4
+17              Estonia      4
+47          Switzerland      4
+22               Greece      2
+25              Ireland      2
+15       Czech Republic      2
+0               Algeria      2
+4               Bahrain      2
+5               Belarus      2
+29           Kazakhstan      2
+8              Bulgaria      1
+9               Burundi      1
+12             Colombia      1
+14                 Cuba      1
+23              Grenada      1
+32               Mexico      1
+41               Serbia      1
+42            Singapore      1
+43             Slovakia      1
+38                Qatar      1
+48           Tajikistan      1
+49  Trinidad and Tobago      1
+50               Turkey      1
+51              Ukraine      1
+53            Venezuela      1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, trazamos un diagrama de barras para mostrar la cantidad de medallas obtenidas por cada equipo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">equipos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Medal&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;tab20c&quot;</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Equipo&quot;</span><span class="p">,</span> <span class="s2">&quot;Número de Medallas&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Número de Medallas por Equipo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2a8887c89d0&gt;
+</pre></div>
+</div>
+<img alt="_images/597f2ddbc31d014b6166f03a470a151111c7c3c69ae63eaddef924e5c63e5742.png" src="_images/597f2ddbc31d014b6166f03a470a151111c7c3c69ae63eaddef924e5c63e5742.png" />
+</div>
+</div>
+<p>Como valor agregado, se quiso analizar la cantidad de medallas ganadas por cada uno de los mejores cinco equipos en los cinco deportes principales.</p>
+<p>Para esto, extraemos las primeras cinco filas de <strong>equipos</strong> para saber cuáles son los mejores cinco.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equipos_5</span> <span class="o">=</span> <span class="n">equipos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">equipos_5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Team  Medal
+52  United States    127
+20        Germany     88
+21  Great Britain     69
+10         Canada     45
+2       Australia     43
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, tomamos nuevamente el DataFrame <strong>deportes_dff</strong> para agrupar por equipo y deporte, y contar así su respectiva cantidad de medallas. Sin embargo, a nosotros nos interesan solo los primeros cinco equipos, por tanto, filtramos <strong>equipos_5f</strong> de tal manera que solo salgan las filas cuyo valor en la columna Team esté también en <strong>equipos_5</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equipos_5f</span><span class="o">=</span> <span class="n">deportes_dff</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span> <span class="s2">&quot;Sport&quot;</span><span class="p">])[</span><span class="s2">&quot;Medal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Medals&quot;</span><span class="p">)</span>
+<span class="n">equipos_df</span> <span class="o">=</span> <span class="n">equipos_5f</span><span class="p">[</span><span class="n">equipos_5f</span><span class="p">[</span><span class="s1">&#39;Team&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">equipos_5</span><span class="p">[</span><span class="s1">&#39;Team&#39;</span><span class="p">])]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">equipos_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Team      Sport  Medals
+2       Australia  Athletics       2
+3       Australia     Rowing       9
+4       Australia   Swimming      32
+17         Canada  Athletics      10
+18         Canada   Football      18
+19         Canada     Rowing       2
+20         Canada   Swimming      15
+38        Germany  Athletics       3
+39        Germany   Football      35
+40        Germany     Hockey      33
+41        Germany     Rowing      17
+42  Great Britain  Athletics      14
+43  Great Britain     Hockey      16
+44  Great Britain     Rowing      26
+45  Great Britain   Swimming      13
+90  United States  Athletics      46
+91  United States     Rowing      10
+92  United States   Swimming      71
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, graficamos el diagrama de barras compartido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Team&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Medals&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;Sport&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">equipos_df</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;tab20c&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/40b2b760143a2565858ca3e035320c5b66a81fcecde8c6f9e74a2b7f96326fb8.png" src="_images/40b2b760143a2565858ca3e035320c5b66a81fcecde8c6f9e74a2b7f96326fb8.png" />
+</div>
+</div>
+<section id="inciso-4">
+<h2>Inciso 4<a class="headerlink" href="#inciso-4" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="observe-la-tendencia-del-peso-medio-de-los-atletas-masculinos-y-femeninos-ganadores-en-los-cinco-principales-deportes-en-2016">
+<h1>Observe la tendencia del peso medio de los atletas masculinos y femeninos ganadores en los cinco principales deportes en 2016<a class="headerlink" href="#observe-la-tendencia-del-peso-medio-de-los-atletas-masculinos-y-femeninos-ganadores-en-los-cinco-principales-deportes-en-2016" title="Link to this heading">#</a></h1>
+<p>Primeramente, en cada deporte, vamos a separar en un grupo a las personas de sexo Femenino y en otro grupo a las de sexo Masculino, y se calcula el peso total por cada grupo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sexo</span> <span class="o">=</span> <span class="n">deportes_dff</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Sport&quot;</span><span class="p">])[</span><span class="s2">&quot;Weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Total_Weight&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sexo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Sex      Sport  Total_Weight
+0   F  Athletics        5945.0
+1   F   Football        3400.0
+2   F     Hockey        3090.0
+3   F     Rowing        4306.0
+4   F   Swimming        6421.0
+5   M  Athletics        7433.0
+6   M   Football        3862.0
+7   M     Hockey        3919.0
+8   M     Rowing        7462.0
+9   M   Swimming        7757.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, graficamos el gráfico de barras que muestra el peso medio de los jugadores, clasificados en función del género, que ganaron en los cinco principales deportes en 2016.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Sport&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Total_Weight&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">sexo</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;tab20c&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Sexo&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Peso total&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Peso promedio por sexo y deporte&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;Sexo&#39;),
+ Text(0, 0.5, &#39;Peso total&#39;),
+ Text(0.5, 1.0, &#39;Peso promedio por sexo y deporte&#39;)]
+</pre></div>
+</div>
+<img alt="_images/a14da98c0c82347d10275d47186e47dc6364a09ca5c6c65d6f34e08243726086.png" src="_images/a14da98c0c82347d10275d47186e47dc6364a09ca5c6c65d6f34e08243726086.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Enunciado de cada entregable.</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Entregable%202.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>DataFrame</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DataFrame</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-previos">Pasos previos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-1">Inciso 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#genere-un-grafico-que-indique-el-numero-de-medallas-concedidas-en-cada-uno-de-los-cinco-principales-deportes-en-2016">Genere un gráfico que indique el número de medallas concedidas en cada uno de los cinco principales deportes en 2016.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-2">Inciso 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-un-grafico-que-represente-la-distribucion-de-la-edad-de-los-ganadores-de-medallas-en-los-cinco-principales-deportes-en-2016">Trace un gráfico que represente la distribución de la edad de los ganadores de medallas en los cinco principales deportes en 2016</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-3">Inciso 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descubre-que-equipos-nacionales-ganaron-el-mayor-numero-de-medallas-en-los-cinco-principales-deportes-en-2016">Descubre qué equipos nacionales ganaron el mayor número de medallas en los cinco principales deportes en 2016.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inciso-4">Inciso 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#observe-la-tendencia-del-peso-medio-de-los-atletas-masculinos-y-femeninos-ganadores-en-los-cinco-principales-deportes-en-2016">Observe la tendencia del peso medio de los atletas masculinos y femeninos ganadores en los cinco principales deportes en 2016</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
